@@ -1,0 +1,547 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		664F74AA18CFAC710038EFF7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 664F74A918CFAC710038EFF7 /* Foundation.framework */; };
+		664F74AC18CFAC710038EFF7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 664F74AB18CFAC710038EFF7 /* CoreGraphics.framework */; };
+		664F74AE18CFAC710038EFF7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 664F74AD18CFAC710038EFF7 /* UIKit.framework */; };
+		664F74B018CFAC710038EFF7 /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 664F74AF18CFAC710038EFF7 /* SpriteKit.framework */; };
+		664F74B618CFAC710038EFF7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 664F74B418CFAC710038EFF7 /* InfoPlist.strings */; };
+		664F74B818CFAC710038EFF7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 664F74B718CFAC710038EFF7 /* main.m */; };
+		664F74BC18CFAC710038EFF7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 664F74BB18CFAC710038EFF7 /* AppDelegate.m */; };
+		664F74BF18CFAC710038EFF7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 664F74BD18CFAC710038EFF7 /* Main.storyboard */; };
+		664F74C218CFAC710038EFF7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 664F74C118CFAC710038EFF7 /* ViewController.m */; };
+		664F74C518CFAC710038EFF7 /* MyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 664F74C418CFAC710038EFF7 /* MyScene.m */; };
+		664F74C918CFAC710038EFF7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 664F74C818CFAC710038EFF7 /* Images.xcassets */; };
+		664F74D018CFAC710038EFF7 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 664F74CF18CFAC710038EFF7 /* XCTest.framework */; };
+		664F74D118CFAC710038EFF7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 664F74A918CFAC710038EFF7 /* Foundation.framework */; };
+		664F74D218CFAC710038EFF7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 664F74AD18CFAC710038EFF7 /* UIKit.framework */; };
+		664F74DA18CFAC710038EFF7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 664F74D818CFAC710038EFF7 /* InfoPlist.strings */; };
+		664F74DC18CFAC710038EFF7 /* PortballTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 664F74DB18CFAC710038EFF7 /* PortballTests.m */; };
+		66F3000018D0024D00C656C5 /* SKTAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = 66F3FFFA18D0024D00C656C5 /* SKTAudio.m */; };
+		66F3000118D0024D00C656C5 /* SKTUtils.mm in Sources */ = {isa = PBXBuildFile; fileRef = 66F3FFFC18D0024D00C656C5 /* SKTUtils.mm */; };
+		66F3FFFD18D0024D00C656C5 /* SKAction+SKTExtras.m in Sources */ = {isa = PBXBuildFile; fileRef = 66F3FFF418D0024D00C656C5 /* SKAction+SKTExtras.m */; };
+		66F3FFFE18D0024D00C656C5 /* SKEmitterNode+SKTExtras.m in Sources */ = {isa = PBXBuildFile; fileRef = 66F3FFF618D0024D00C656C5 /* SKEmitterNode+SKTExtras.m */; };
+		66F3FFFF18D0024D00C656C5 /* SKNode+SKTExtras.m in Sources */ = {isa = PBXBuildFile; fileRef = 66F3FFF818D0024D00C656C5 /* SKNode+SKTExtras.m */; };
+		C3DAEA4418EAE65000BA6839 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = C3DAEA4218EAE65000BA6839 /* background.png */; };
+		C3DAEA4518EAE65000BA6839 /* sprites.atlas in Resources */ = {isa = PBXBuildFile; fileRef = C3DAEA4318EAE65000BA6839 /* sprites.atlas */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		664F74D318CFAC710038EFF7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 664F749E18CFAC710038EFF7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 664F74A518CFAC710038EFF7;
+			remoteInfo = Portball;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		664F74A618CFAC710038EFF7 /* Portball.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Portball.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		664F74A918CFAC710038EFF7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		664F74AB18CFAC710038EFF7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		664F74AD18CFAC710038EFF7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		664F74AF18CFAC710038EFF7 /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
+		664F74B318CFAC710038EFF7 /* Portball-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Portball-Info.plist"; sourceTree = "<group>"; };
+		664F74B518CFAC710038EFF7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		664F74B718CFAC710038EFF7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		664F74B918CFAC710038EFF7 /* Portball-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Portball-Prefix.pch"; sourceTree = "<group>"; };
+		664F74BA18CFAC710038EFF7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		664F74BB18CFAC710038EFF7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		664F74BE18CFAC710038EFF7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		664F74C018CFAC710038EFF7 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		664F74C118CFAC710038EFF7 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		664F74C318CFAC710038EFF7 /* MyScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyScene.h; sourceTree = "<group>"; };
+		664F74C418CFAC710038EFF7 /* MyScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyScene.m; sourceTree = "<group>"; };
+		664F74C818CFAC710038EFF7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		664F74CE18CFAC710038EFF7 /* PortballTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PortballTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		664F74CF18CFAC710038EFF7 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		664F74D718CFAC710038EFF7 /* PortballTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PortballTests-Info.plist"; sourceTree = "<group>"; };
+		664F74D918CFAC710038EFF7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		664F74DB18CFAC710038EFF7 /* PortballTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PortballTests.m; sourceTree = "<group>"; };
+		66F3FFF318D0024D00C656C5 /* SKAction+SKTExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SKAction+SKTExtras.h"; sourceTree = "<group>"; };
+		66F3FFF418D0024D00C656C5 /* SKAction+SKTExtras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SKAction+SKTExtras.m"; sourceTree = "<group>"; };
+		66F3FFF518D0024D00C656C5 /* SKEmitterNode+SKTExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SKEmitterNode+SKTExtras.h"; sourceTree = "<group>"; };
+		66F3FFF618D0024D00C656C5 /* SKEmitterNode+SKTExtras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SKEmitterNode+SKTExtras.m"; sourceTree = "<group>"; };
+		66F3FFF718D0024D00C656C5 /* SKNode+SKTExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SKNode+SKTExtras.h"; sourceTree = "<group>"; };
+		66F3FFF818D0024D00C656C5 /* SKNode+SKTExtras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SKNode+SKTExtras.m"; sourceTree = "<group>"; };
+		66F3FFF918D0024D00C656C5 /* SKTAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKTAudio.h; sourceTree = "<group>"; };
+		66F3FFFA18D0024D00C656C5 /* SKTAudio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKTAudio.m; sourceTree = "<group>"; };
+		66F3FFFB18D0024D00C656C5 /* SKTUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKTUtils.h; sourceTree = "<group>"; };
+		66F3FFFC18D0024D00C656C5 /* SKTUtils.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SKTUtils.mm; sourceTree = "<group>"; };
+		C3DAEA4218EAE65000BA6839 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
+		C3DAEA4318EAE65000BA6839 /* sprites.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = sprites.atlas; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		664F74A318CFAC710038EFF7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				664F74AC18CFAC710038EFF7 /* CoreGraphics.framework in Frameworks */,
+				664F74AE18CFAC710038EFF7 /* UIKit.framework in Frameworks */,
+				664F74B018CFAC710038EFF7 /* SpriteKit.framework in Frameworks */,
+				664F74AA18CFAC710038EFF7 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		664F74CB18CFAC710038EFF7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				664F74D018CFAC710038EFF7 /* XCTest.framework in Frameworks */,
+				664F74D218CFAC710038EFF7 /* UIKit.framework in Frameworks */,
+				664F74D118CFAC710038EFF7 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		664F749D18CFAC710038EFF7 = {
+			isa = PBXGroup;
+			children = (
+				664F74B118CFAC710038EFF7 /* Portball */,
+				664F74D518CFAC710038EFF7 /* PortballTests */,
+				664F74A818CFAC710038EFF7 /* Frameworks */,
+				664F74A718CFAC710038EFF7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		664F74A718CFAC710038EFF7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				664F74A618CFAC710038EFF7 /* Portball.app */,
+				664F74CE18CFAC710038EFF7 /* PortballTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		664F74A818CFAC710038EFF7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				664F74A918CFAC710038EFF7 /* Foundation.framework */,
+				664F74AB18CFAC710038EFF7 /* CoreGraphics.framework */,
+				664F74AD18CFAC710038EFF7 /* UIKit.framework */,
+				664F74AF18CFAC710038EFF7 /* SpriteKit.framework */,
+				664F74CF18CFAC710038EFF7 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		664F74B118CFAC710038EFF7 /* Portball */ = {
+			isa = PBXGroup;
+			children = (
+				66F3FFF218D0024D00C656C5 /* SKTUtils */,
+				664F74BA18CFAC710038EFF7 /* AppDelegate.h */,
+				664F74BB18CFAC710038EFF7 /* AppDelegate.m */,
+				664F74BD18CFAC710038EFF7 /* Main.storyboard */,
+				664F74C018CFAC710038EFF7 /* ViewController.h */,
+				664F74C118CFAC710038EFF7 /* ViewController.m */,
+				664F74C318CFAC710038EFF7 /* MyScene.h */,
+				664F74C418CFAC710038EFF7 /* MyScene.m */,
+				664F74C818CFAC710038EFF7 /* Images.xcassets */,
+				C3DAEA4018EAE65000BA6839 /* Art */,
+				664F74B218CFAC710038EFF7 /* Supporting Files */,
+			);
+			path = Portball;
+			sourceTree = "<group>";
+		};
+		664F74B218CFAC710038EFF7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				664F74B318CFAC710038EFF7 /* Portball-Info.plist */,
+				664F74B418CFAC710038EFF7 /* InfoPlist.strings */,
+				664F74B718CFAC710038EFF7 /* main.m */,
+				664F74B918CFAC710038EFF7 /* Portball-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		664F74D518CFAC710038EFF7 /* PortballTests */ = {
+			isa = PBXGroup;
+			children = (
+				664F74DB18CFAC710038EFF7 /* PortballTests.m */,
+				664F74D618CFAC710038EFF7 /* Supporting Files */,
+			);
+			path = PortballTests;
+			sourceTree = "<group>";
+		};
+		664F74D618CFAC710038EFF7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				664F74D718CFAC710038EFF7 /* PortballTests-Info.plist */,
+				664F74D818CFAC710038EFF7 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		66F3FFF218D0024D00C656C5 /* SKTUtils */ = {
+			isa = PBXGroup;
+			children = (
+				66F3FFF318D0024D00C656C5 /* SKAction+SKTExtras.h */,
+				66F3FFF418D0024D00C656C5 /* SKAction+SKTExtras.m */,
+				66F3FFF518D0024D00C656C5 /* SKEmitterNode+SKTExtras.h */,
+				66F3FFF618D0024D00C656C5 /* SKEmitterNode+SKTExtras.m */,
+				66F3FFF718D0024D00C656C5 /* SKNode+SKTExtras.h */,
+				66F3FFF818D0024D00C656C5 /* SKNode+SKTExtras.m */,
+				66F3FFF918D0024D00C656C5 /* SKTAudio.h */,
+				66F3FFFA18D0024D00C656C5 /* SKTAudio.m */,
+				66F3FFFB18D0024D00C656C5 /* SKTUtils.h */,
+				66F3FFFC18D0024D00C656C5 /* SKTUtils.mm */,
+			);
+			path = SKTUtils;
+			sourceTree = "<group>";
+		};
+		C3DAEA4018EAE65000BA6839 /* Art */ = {
+			isa = PBXGroup;
+			children = (
+				C3DAEA4118EAE65000BA6839 /* bg */,
+				C3DAEA4318EAE65000BA6839 /* sprites.atlas */,
+			);
+			path = Art;
+			sourceTree = "<group>";
+		};
+		C3DAEA4118EAE65000BA6839 /* bg */ = {
+			isa = PBXGroup;
+			children = (
+				C3DAEA4218EAE65000BA6839 /* background.png */,
+			);
+			path = bg;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		664F74A518CFAC710038EFF7 /* Portball */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 664F74DF18CFAC710038EFF7 /* Build configuration list for PBXNativeTarget "Portball" */;
+			buildPhases = (
+				664F74A218CFAC710038EFF7 /* Sources */,
+				664F74A318CFAC710038EFF7 /* Frameworks */,
+				664F74A418CFAC710038EFF7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Portball;
+			productName = Portball;
+			productReference = 664F74A618CFAC710038EFF7 /* Portball.app */;
+			productType = "com.apple.product-type.application";
+		};
+		664F74CD18CFAC710038EFF7 /* PortballTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 664F74E218CFAC710038EFF7 /* Build configuration list for PBXNativeTarget "PortballTests" */;
+			buildPhases = (
+				664F74CA18CFAC710038EFF7 /* Sources */,
+				664F74CB18CFAC710038EFF7 /* Frameworks */,
+				664F74CC18CFAC710038EFF7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				664F74D418CFAC710038EFF7 /* PBXTargetDependency */,
+			);
+			name = PortballTests;
+			productName = PortballTests;
+			productReference = 664F74CE18CFAC710038EFF7 /* PortballTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		664F749E18CFAC710038EFF7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Aero + Quincy";
+				TargetAttributes = {
+					664F74CD18CFAC710038EFF7 = {
+						TestTargetID = 664F74A518CFAC710038EFF7;
+					};
+				};
+			};
+			buildConfigurationList = 664F74A118CFAC710038EFF7 /* Build configuration list for PBXProject "Portball" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 664F749D18CFAC710038EFF7;
+			productRefGroup = 664F74A718CFAC710038EFF7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				664F74A518CFAC710038EFF7 /* Portball */,
+				664F74CD18CFAC710038EFF7 /* PortballTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		664F74A418CFAC710038EFF7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3DAEA4518EAE65000BA6839 /* sprites.atlas in Resources */,
+				664F74B618CFAC710038EFF7 /* InfoPlist.strings in Resources */,
+				C3DAEA4418EAE65000BA6839 /* background.png in Resources */,
+				664F74C918CFAC710038EFF7 /* Images.xcassets in Resources */,
+				664F74BF18CFAC710038EFF7 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		664F74CC18CFAC710038EFF7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				664F74DA18CFAC710038EFF7 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		664F74A218CFAC710038EFF7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				664F74C518CFAC710038EFF7 /* MyScene.m in Sources */,
+				66F3000018D0024D00C656C5 /* SKTAudio.m in Sources */,
+				664F74C218CFAC710038EFF7 /* ViewController.m in Sources */,
+				66F3FFFE18D0024D00C656C5 /* SKEmitterNode+SKTExtras.m in Sources */,
+				66F3000118D0024D00C656C5 /* SKTUtils.mm in Sources */,
+				66F3FFFD18D0024D00C656C5 /* SKAction+SKTExtras.m in Sources */,
+				664F74BC18CFAC710038EFF7 /* AppDelegate.m in Sources */,
+				66F3FFFF18D0024D00C656C5 /* SKNode+SKTExtras.m in Sources */,
+				664F74B818CFAC710038EFF7 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		664F74CA18CFAC710038EFF7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				664F74DC18CFAC710038EFF7 /* PortballTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		664F74D418CFAC710038EFF7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 664F74A518CFAC710038EFF7 /* Portball */;
+			targetProxy = 664F74D318CFAC710038EFF7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		664F74B418CFAC710038EFF7 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				664F74B518CFAC710038EFF7 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		664F74BD18CFAC710038EFF7 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				664F74BE18CFAC710038EFF7 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		664F74D818CFAC710038EFF7 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				664F74D918CFAC710038EFF7 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		664F74DD18CFAC710038EFF7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		664F74DE18CFAC710038EFF7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		664F74E018CFAC710038EFF7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Portball/Portball-Prefix.pch";
+				INFOPLIST_FILE = "Portball/Portball-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		664F74E118CFAC710038EFF7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Portball/Portball-Prefix.pch";
+				INFOPLIST_FILE = "Portball/Portball-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		664F74E318CFAC710038EFF7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Portball.app/Portball";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Portball/Portball-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "PortballTests/PortballTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		664F74E418CFAC710038EFF7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Portball.app/Portball";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Portball/Portball-Prefix.pch";
+				INFOPLIST_FILE = "PortballTests/PortballTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		664F74A118CFAC710038EFF7 /* Build configuration list for PBXProject "Portball" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				664F74DD18CFAC710038EFF7 /* Debug */,
+				664F74DE18CFAC710038EFF7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		664F74DF18CFAC710038EFF7 /* Build configuration list for PBXNativeTarget "Portball" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				664F74E018CFAC710038EFF7 /* Debug */,
+				664F74E118CFAC710038EFF7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		664F74E218CFAC710038EFF7 /* Build configuration list for PBXNativeTarget "PortballTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				664F74E318CFAC710038EFF7 /* Debug */,
+				664F74E418CFAC710038EFF7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 664F749E18CFAC710038EFF7 /* Project object */;
+}
