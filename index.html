@@ -2,7 +2,13 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover"
+    />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <title>Portball</title>
     <link rel="icon" type="image/png" href="/src/art/sprites/favicon.png" />
     <style>
@@ -20,6 +26,48 @@
       canvas {
         image-rendering: pixelated;
         touch-action: none;
+      }
+
+      /* Hidden until main.js confirms the Fullscreen API actually works here —
+         iPhone Safari exposes no usable fullscreen for non-video elements, and
+         a button that does nothing is worse than no button. */
+      #fullscreen {
+        position: fixed;
+        top: max(8px, env(safe-area-inset-top));
+        right: max(8px, env(safe-area-inset-right));
+        display: none;
+        width: 44px;
+        height: 44px;
+        padding: 0;
+        border: 2px solid #3a2d63;
+        background: rgba(11, 7, 22, 0.6);
+        color: #9c8fc7;
+        font: inherit;
+        font-size: 18px;
+        line-height: 1;
+        cursor: pointer;
+        z-index: 5;
+      }
+      #fullscreen[data-show='1'] { display: block; }
+      #fullscreen:hover { color: #7dfcc6; border-color: #7dfcc6; }
+
+      #rotate {
+        position: fixed;
+        inset: 0;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+        text-align: center;
+        font-size: 13px;
+        line-height: 1.6;
+        color: #9c8fc7;
+        background: #0b0716;
+        z-index: 20;
+      }
+      /* Portrait on a short viewport: the 16:9 canvas would be a stamp. */
+      @media (orientation: portrait) and (max-height: 560px) {
+        #rotate { display: flex; }
       }
 
       #gameover {
@@ -103,6 +151,9 @@
     </style>
   </head>
   <body>
+    <button id="fullscreen" type="button" aria-label="Toggle fullscreen">⛶</button>
+    <div id="rotate">turn your device sideways<br />— Portball is a widescreen bunny —</div>
+
     <div id="gameover">
       <div class="panel">
         <h1>GAME OVER</h1>

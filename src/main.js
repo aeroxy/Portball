@@ -10,6 +10,7 @@ import { Obstacles } from './game/Obstacles.js';
 import { Portals } from './game/Portals.js';
 import { Hud } from './game/Hud.js';
 import { GameOverPanel } from './game/GameOverPanel.js';
+import { initFullscreen } from './fullscreen.js';
 
 const WIDTH = 480;
 const HEIGHT = 270;
@@ -36,6 +37,8 @@ function fitCanvas() {
 }
 fitCanvas();
 addEventListener('resize', fitCanvas);
+addEventListener('orientationchange', fitCanvas);
+initFullscreen(fitCanvas);
 
 const textures = await loadTextures();
 
