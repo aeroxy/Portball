@@ -1,6 +1,7 @@
 // Checkpoint-gate portal pair. 1st tap places gate A, 2nd tap places gate B
-// (arms the warp), 3rd tap clears both. Whatever reaches an armed gate A first
-// — bunny, carrot, thorn ball, ledge — comes out at gate B and closes the pair.
+// (arms the warp), 3rd tap clears both. The pair is bidirectional: whatever
+// reaches an armed gate first — bunny, carrot, thorn ball, ledge — comes out
+// at the other gate and closes the pair.
 //
 // An unpaired gate A expires on its own after SOLO_TIMEOUT so a stray tap
 // doesn't leave a gate sitting on the field indefinitely.
@@ -52,12 +53,19 @@ export class Portals {
     return sprite;
   }
 
-  /** Warp check; returns the destination point or null. */
+  /**
+   * Warp check; returns the destination point or null. The pair works both
+   * ways — entering A exits at B, entering B exits at A — and either
+   * direction closes both gates.
+   */
   checkWarp(body) {
     if (!this.gateA || !this.gateB) return null;
-    const gate = { x: this.gateA.x, y: this.gateA.y, r: GATE_RADIUS };
-    if (!circleOverlap(body, gate)) return null;
-    const dest = { x: this.gateB.x, y: this.gateB.y };
+    const a = { x: this.gateA.x, y: this.gateA.y, r: GATE_RADIUS };
+    const b = { x: this.gateB.x, y: this.gateB.y, r: GATE_RADIUS };
+    let dest = null;
+    if (circleOverlap(body, a)) dest = { x: b.x, y: b.y };
+    else if (circleOverlap(body, b)) dest = { x: a.x, y: a.y };
+    if (!dest) return null;
     this.reset();
     return dest;
   }
