@@ -8,6 +8,7 @@
 
 import { Container, Sprite } from 'pixi.js';
 import { circleOverlap } from './physics.js';
+import { SCROLL_SPEED } from './Obstacles.js';
 
 const GATE_RADIUS = 18;
 const SOLO_TIMEOUT = 3; // seconds gate A survives without a gate B
@@ -15,8 +16,9 @@ const SOLO_MIN_ALPHA = 0.15; // how faint it gets just before it goes
 const SOLO_MIN_SCALE = 0.4; // how small it collapses to
 
 export class Portals {
-  constructor(textures) {
+  constructor(textures, worldWidth) {
     this.textures = textures;
+    this.worldWidth = worldWidth;
     this.container = new Container();
     this.gateA = null;
     this.gateB = null;
@@ -71,6 +73,21 @@ export class Portals {
   }
 
   update(dt) {
+    // A gate is a world object on the play plane, not a screen overlay: a
+    // ledge can enter it, so it scrolls at exactly the obstacle rate. Matching
+    // speeds means zero drift between a gate and the obstacle it was aimed at,
+    // so the player's aim doesn't have to lead by the target's flight time.
+    // Once a gate clears the left edge the pair is dead, so the whole pair
+    // closes rather than leaving a lone gate with no reachable far side.
+    const drift = SCROLL_SPEED * dt;
+    if (this.gateA) this.gateA.x -= drift;
+    if (this.gateB) this.gateB.x -= drift;
+    const offscreen = (gate) => gate && gate.x < -GATE_RADIUS;
+    if (offscreen(this.gateA) || offscreen(this.gateB)) {
+      this.reset();
+      return;
+    }
+
     // A gate with no partner is on a clock — fade it out over the last second
     // so it reads as expiring rather than vanishing.
     // It fades AND shrinks across the whole unpaired window, so "this is about

@@ -81,63 +81,103 @@
       }
       #gameover[data-open='1'] { display: flex; }
 
+      /* One knob: the panel's own font-size drives every measurement inside it
+         via em, so the whole card scales as a unit. It keys off viewport
+         HEIGHT, not width — in landscape (the orientation this is played in)
+         width is abundant and height is the scarce axis, so vw-based type
+         would grow the panel exactly where there's least room to put it.
+         dvh, not vh: on iOS Safari vh is the *large* viewport height, taller
+         than what's actually visible while the browser chrome is showing, so
+         vh-sized content overflows off the bottom. vh first as a fallback for
+         engines without dvh. */
       .panel {
-        width: min(90vw, 420px);
+        width: min(92vw, 28em);
         max-height: 88vh;
+        max-height: 88dvh;
+        font-size: clamp(11px, 2.1vh, 15px);
+        font-size: clamp(11px, 2.1dvh, 15px);
+        display: flex;
+        flex-direction: column;
+        /* Last-resort safety only — the board below is what normally scrolls. */
         overflow-y: auto;
-        padding: 24px;
+        padding: 1.6em;
         border: 2px solid #3a2d63;
         background: #150e2b;
         box-shadow: 0 0 0 4px #0b0716, 0 12px 40px rgba(0, 0, 0, 0.6);
       }
+      /* Everything above the board is fixed-size: only the board flexes, so
+         these must not be shrunk by the flex algorithm. */
+      .panel h1, .panel > .note, .stats { flex: none; }
       .panel h1 {
-        margin: 0 0 16px;
-        font-size: 24px;
-        letter-spacing: 2px;
+        margin: 0 0 0.7em;
+        font-size: 1.7em;
+        letter-spacing: 0.12em;
         color: #ff7a4d;
       }
-      .stats { margin-bottom: 20px; font-size: 14px; line-height: 1.7; }
+      .stats { margin-bottom: 1.1em; font-size: 1.05em; line-height: 1.7; }
       .stats b { color: #7dfcc6; font-weight: 600; }
 
-      .board { margin-bottom: 20px; font-size: 13px; }
+      /* The board absorbs the leftover height and scrolls inside itself, so a
+         10-row leaderboard can't push PLAY AGAIN below the fold — on a 390px
+         landscape phone the old fixed-px layout made you scroll the panel to
+         find the restart button. */
+      .board {
+        margin-bottom: 1.1em;
+        flex: 1 1 auto;
+        min-height: 3em;
+        display: flex;
+        flex-direction: column;
+      }
       .board h2 {
-        margin: 0 0 8px;
-        font-size: 12px;
-        letter-spacing: 2px;
+        margin: 0 0 0.5em;
+        font-size: 0.85em;
+        letter-spacing: 0.15em;
         text-transform: uppercase;
         color: #9c8fc7;
         font-weight: 600;
+        flex: none;
       }
+      #go-board { min-height: 0; overflow-y: auto; overscroll-behavior: contain; }
       .board ol { margin: 0; padding: 0; list-style: none; }
       .board li {
         display: flex;
         justify-content: space-between;
-        gap: 12px;
-        padding: 3px 6px;
+        gap: 0.8em;
+        padding: 0.2em 0.45em;
       }
       .board li.me { background: #2a1f4d; color: #7dfcc6; }
       .board li .rank { color: #6d5f99; width: 2em; flex: none; }
       .board li .name { flex: 1; overflow: hidden; text-overflow: ellipsis; }
       .board .empty { color: #6d5f99; font-style: italic; }
 
-      .action { display: flex; flex-direction: column; gap: 10px; }
+      .action { display: flex; flex-direction: column; gap: 0.7em; flex: none; }
+      /* min-height stays in px on purpose: 44px is a finger, which doesn't get
+         smaller just because the viewport did. It's the one measurement here
+         that must not scale. */
       .action input {
-        padding: 9px 10px;
+        padding: 0.6em 0.7em;
+        min-height: 44px;
+        box-sizing: border-box;
         border: 2px solid #3a2d63;
         background: #0b0716;
         color: #f2ecff;
         font: inherit;
-        font-size: 14px;
+        font-size: 1.05em;
       }
       .action input:focus { outline: none; border-color: #7dfcc6; }
       .action button, .action a.btn {
-        padding: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.7em;
+        min-height: 44px;
+        box-sizing: border-box;
         border: 2px solid #7dfcc6;
         background: transparent;
         color: #7dfcc6;
         font: inherit;
-        font-size: 13px;
-        letter-spacing: 1px;
+        font-size: 1em;
+        letter-spacing: 0.08em;
         cursor: pointer;
         text-align: center;
         text-decoration: none;
@@ -146,7 +186,7 @@
       .action button:disabled { border-color: #3a2d63; color: #6d5f99; cursor: default; }
       .action button.restart { border-color: #ff7a4d; color: #ff7a4d; }
       .action button.restart:hover { background: #ff7a4d; color: #0b0716; }
-      .note { font-size: 12px; color: #9c8fc7; line-height: 1.5; }
+      .note { font-size: 0.85em; color: #9c8fc7; line-height: 1.5; }
       .note.error { color: #ff7a4d; }
     </style>
   </head>

@@ -3,7 +3,7 @@
 
 import { Container, Sprite } from 'pixi.js';
 
-const BG_SPEED = 30; // px/s at native resolution
+const BG_SPEED = 30; // px/s at native resolution — slower than the play plane, it's parallax
 
 export class Background {
   constructor(texture, width, height) {

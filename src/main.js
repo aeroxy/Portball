@@ -47,7 +47,7 @@ app.stage.addChild(world);
 
 const background = new Background(textures.background, WIDTH, HEIGHT);
 const obstacles = new Obstacles(textures, WIDTH, HEIGHT);
-const portals = new Portals(textures);
+const portals = new Portals(textures, WIDTH);
 const bunny = new Bunny(textures);
 world.addChild(background.container, obstacles.container, portals.container, bunny.sprite);
 
@@ -85,10 +85,12 @@ app.stage.on('pointerdown', (e) => {
 app.ticker.add((ticker) => {
   const dt = Math.min(ticker.deltaMS / 1000, 1 / 20);
   effects.update(dt);
-  portals.update(dt);
   if (!alive) return;
 
   background.update(dt);
+  // Gates drift with the backdrop, so they update alongside it — and freeze
+  // with the rest of the scene on game over.
+  portals.update(dt);
   obstacles.update(dt);
   bunny.update(dt, WIDTH, HEIGHT, obstacles.shelfRects());
 

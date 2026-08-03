@@ -5,7 +5,9 @@
 import { Container, Sprite } from 'pixi.js';
 import { circleOverlap } from './physics.js';
 
-const SCROLL_SPEED = 70; // px/s
+// The play plane's scroll rate. Anything that shares a frame with obstacles —
+// gates included — moves at this speed, so relative positions hold.
+export const SCROLL_SPEED = 70; // px/s
 const SPAWN_INTERVAL = 1.1; // seconds (original: every ~51 frames)
 
 export class Obstacles {
