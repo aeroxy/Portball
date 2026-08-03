@@ -21,11 +21,14 @@ export class Bunny {
     this.body.vy = 0;
   }
 
+  /**
+   * Move through a portal. Velocity carries over untouched — a gate relocates
+   * the bunny, it doesn't stop it. Zeroing here made every warp dump the bunny
+   * into a dead fall, throwing away whatever bounce got it to the gate.
+   */
   teleport(x, y) {
     this.body.x = x;
     this.body.y = y;
-    this.body.vx = 0;
-    this.body.vy = 0;
   }
 
   update(dt, worldWidth, worldHeight, shelves) {

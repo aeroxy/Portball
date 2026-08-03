@@ -61,6 +61,28 @@ export class Obstacles {
   }
 
   /**
+   * Offer each obstacle to an open gate. `tryWarp(body)` returns a destination
+   * when that body is taking the portal, or null. The first one through closes
+   * the gate, so later items in the loop simply get null back.
+   *
+   * The sensor uses the sprite's *smaller* half-dimension so a wide ledge has
+   * to pass its core over the gate rather than clipping it from a body-length
+   * away.
+   */
+  checkWarp(tryWarp) {
+    for (const item of this.items) {
+      const r = Math.min(item.sprite.width, item.sprite.height) / 2;
+      const dest = tryWarp({ x: item.sprite.x, y: item.sprite.y, r });
+      if (dest) {
+        item.sprite.x = dest.x;
+        item.sprite.y = dest.y;
+        return true;
+      }
+    }
+    return false;
+  }
+
+  /**
    * Sensor pass: removes touched friends. Returns { collected, hitEnemy }.
    */
   checkContacts(body) {

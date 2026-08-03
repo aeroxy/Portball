@@ -13,9 +13,18 @@ web with an actual game loop and entirely new art.
 
 One input, three states. Tap or click to place the mint gate **A**; tap again to
 place the coral gate **B**, which arms the pair; a third tap clears both. While a
-pair is armed, the bunny touching **A** warps it to **B**.
+pair is armed, touching **A** warps you out of **B**.
+
+Don't dawdle: a lone **A** fades and closes itself after three seconds, so the
+pair has to be committed to quickly.
 
 Carrots score a point. Thorn balls end the run. Ledges are solid and bouncy.
+
+A gate isn't fussy about what goes through it — a drifting carrot, thorn ball or
+ledge will take it too, and whatever arrives first closes the pair behind it. So
+a badly placed gate can hand you a thorn ball, and a well placed one can pull a
+carrot across the screen. Momentum carries through: the bunny leaves **B** with
+the speed and direction it hit **A**.
 
 On phones and tablets, hit **⛶** (top right) for fullscreen — it'll rotate to
 landscape where the browser allows it. iPhone Safari has no fullscreen for

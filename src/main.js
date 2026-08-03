@@ -92,9 +92,13 @@ app.ticker.add((ticker) => {
   obstacles.update(dt);
   bunny.update(dt, WIDTH, HEIGHT, obstacles.shelfRects());
 
+  // A gate takes whatever reaches it first and closes behind it. The bunny is
+  // offered first so the player wins a tie against a drifting obstacle.
   const dest = portals.checkWarp(bunny.body);
   if (dest) {
     bunny.teleport(dest.x, dest.y);
+    effects.triggerWarp();
+  } else if (obstacles.checkWarp((body) => portals.checkWarp(body))) {
     effects.triggerWarp();
   }
 
