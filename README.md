@@ -18,7 +18,9 @@ pair is armed, touching **A** warps you out of **B**.
 Don't dawdle: a lone **A** fades and closes itself after three seconds, so the
 pair has to be committed to quickly.
 
-Carrots score a point. Thorn balls end the run. Ledges are solid and bouncy.
+Carrots score a point. Thorn balls end the run. Ledges are solid and bouncy. So
+is stopping: a bunny that stays motionless for a second and a half has stopped
+bouncing, and the run ends there too.
 
 A gate isn't fussy about what goes through it — a drifting carrot, thorn ball or
 ledge will take it too, and whatever arrives first closes the pair behind it. So

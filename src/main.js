@@ -109,6 +109,9 @@ app.ticker.add((ticker) => {
   }
   if (hitEnemy) {
     alive = false;
-    gameOver.show(score);
+    gameOver.show(score, 'a thorn ball got you');
+  } else if (bunny.stalled) {
+    alive = false;
+    gameOver.show(score, 'the bunny stopped bouncing');
   }
 });

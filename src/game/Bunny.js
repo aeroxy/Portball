@@ -6,12 +6,25 @@ import { integrate, resolveWorldBounds, resolveShelf } from './physics.js';
 
 const RADIUS = 12;
 
+// A bunny that has stopped bouncing is a dead run. Speed is checked over a
+// window rather than instantaneously because a healthy bounce passes through
+// ~0 at the top of every arc — one frame of stillness is an apex, a second and
+// a half of it means the bunny has settled.
+const STALL_SPEED = 40; // px/s
+const STALL_TIMEOUT = 1.5; // s below STALL_SPEED before the run ends
+
 export class Bunny {
   constructor(textures) {
     this.textures = textures;
     this.body = { x: 0, y: 0, vx: 0, vy: 0, r: RADIUS };
     this.sprite = new Sprite(textures.bunny);
     this.sprite.anchor.set(0.5);
+    this.idleTime = 0;
+  }
+
+  /** True once the bunny has been essentially motionless for STALL_TIMEOUT. */
+  get stalled() {
+    return this.idleTime >= STALL_TIMEOUT;
   }
 
   reset(x, y) {
@@ -19,6 +32,8 @@ export class Bunny {
     this.body.y = y;
     this.body.vx = 0;
     this.body.vy = 0;
+    // A fresh bunny is dropped from rest; don't count that against it.
+    this.idleTime = 0;
   }
 
   /**
@@ -35,6 +50,9 @@ export class Bunny {
     integrate(this.body, dt);
     resolveWorldBounds(this.body, worldWidth, worldHeight);
     for (const shelf of shelves) resolveShelf(this.body, shelf);
+
+    const speed = Math.hypot(this.body.vx, this.body.vy);
+    this.idleTime = speed > STALL_SPEED ? 0 : this.idleTime + dt;
 
     // Hop frame from vertical velocity: rising → stretched, falling fast →
     // crouched (about to land), else idle.

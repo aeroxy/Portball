@@ -10,6 +10,7 @@ import {
 export class GameOverPanel {
   constructor(onRestart) {
     this.root = document.getElementById('gameover');
+    this.reasonEl = document.getElementById('go-reason');
     this.scoreEl = document.getElementById('go-score');
     this.bestEl = document.getElementById('go-best');
     this.boardEl = document.getElementById('go-board');
@@ -18,8 +19,9 @@ export class GameOverPanel {
     this.score = 0;
   }
 
-  async show(score) {
+  async show(score, reason = '') {
     this.score = score;
+    this.reasonEl.textContent = reason;
     this.scoreEl.textContent = String(score);
     this.bestEl.textContent = String(recordLocalBest(score));
     this.root.dataset.open = '1';
