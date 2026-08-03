@@ -9,8 +9,8 @@
 import { Container, Sprite } from 'pixi.js';
 import { circleOverlap, rectOverlap } from './physics.js';
 
-const SPEED_MIN = 60; // px/s
-const SPEED_MAX = 70;
+const SPEED_MIN = 50; // px/s
+const SPEED_MAX = 80;
 
 // The play plane's frame, which gates ride. It's the midpoint of the item
 // spread rather than either end: a gate then drifts at most half the spread
