@@ -58,6 +58,13 @@ export function resolveShelf(body, rect) {
   return true;
 }
 
+/** Overlap test between two center-origin axis-aligned rects: { x, y, w, h }. */
+export function rectOverlap(a, b) {
+  return (
+    Math.abs(a.x - b.x) < (a.w + b.w) / 2 && Math.abs(a.y - b.y) < (a.h + b.h) / 2
+  );
+}
+
 /** Sensor test between two circles: { x, y, r }. */
 export function circleOverlap(a, b) {
   const dx = a.x - b.x, dy = a.y - b.y;

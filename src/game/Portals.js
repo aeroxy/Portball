@@ -73,10 +73,12 @@ export class Portals {
   }
 
   update(dt) {
-    // A gate is a world object on the play plane, not a screen overlay: a
-    // ledge can enter it, so it scrolls at exactly the obstacle rate. Matching
-    // speeds means zero drift between a gate and the obstacle it was aimed at,
-    // so the player's aim doesn't have to lead by the target's flight time.
+    // A gate is a world object on the play plane, not a screen overlay: a ledge
+    // can enter it, so it rides the play plane's frame rather than the distant
+    // backdrop's. Items each carry their own speed around that frame, so a gate
+    // drifts against a given target by at most half the item spread — enough
+    // that a long-range shot needs a little lead, but not the wholesale
+    // correction that anchoring gates to the parallax layer would demand.
     // Once a gate clears the left edge the pair is dead, so the whole pair
     // closes rather than leaving a lone gate with no reachable far side.
     const drift = SCROLL_SPEED * dt;
