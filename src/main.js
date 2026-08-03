@@ -1,5 +1,5 @@
 // Portball web remake — PixiJS v8 on WebGPU (WebGL fallback).
-// Native 480x270 pixel canvas, integer-scaled up with nearest-neighbor.
+// Native 480x270 pixel canvas, scaled up uniformly with nearest-neighbor.
 
 import { Application, Container } from 'pixi.js';
 import { loadTextures } from './art/loadTextures.js';

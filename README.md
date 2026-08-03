@@ -17,12 +17,17 @@ pair is armed, the bunny touching **A** warps it to **B**.
 
 Carrots score a point. Thorn balls end the run. Ledges are solid and bouncy.
 
+On phones and tablets, hit **⛶** (top right) for fullscreen — it'll rotate to
+landscape where the browser allows it. iPhone Safari has no fullscreen for
+anything but video, so the button doesn't appear there; turn the phone sideways,
+or Add to Home Screen to lose the browser chrome.
+
 ## Stack
 
 - **[Vite](https://vite.dev)** — dev server and build. No framework.
 - **[PixiJS v8](https://pixijs.com)** on **WebGPU**, falling back to WebGL where
-  WebGPU is unavailable. Rendered at a native 480×270 and integer-scaled up with
-  nearest-neighbour sampling, so the pixels stay square.
+  WebGPU is unavailable. Rendered at a native 480×270 and scaled up uniformly
+  with nearest-neighbour sampling, so the pixels stay square.
 - **`pixi-filters`** for the CRT scanlines, gate glow, and the chromatic split
   that fires on a warp.
 - **No physics engine.** [src/game/physics.js](src/game/physics.js) is about a
@@ -80,19 +85,12 @@ URLs against that base — the hash in a filename is its version, so nothing eve
 needs cache-busting. Note the URL carries no `@ref`: a file that hasn't been
 pushed yet should 404 loudly rather than resolve to some older commit.
 
-**The leaderboard is AeroDB.** One table, `scores`, on the `portball` page:
-
-| flag | value | effect |
-|---|---|---|
-| `read_access` | `public` | anyone sees the top 10, signed in or not |
-| `write_access` | `authed-own` | only signed-in Aero users, and only their own row |
-
-The document id *is* the player's handle (`^[a-z0-9]{3,16}$`). That one choice
-gets handle uniqueness for free — the id is a primary key, so a taken handle is a
-403 rather than something the client has to police — and it keeps emails off the
-public board entirely. Personal best is mirrored into `localStorage` so it still
-renders when signed out. [src/net/leaderboard.js](src/net/leaderboard.js) is the
-only file that talks to the API.
+**The leaderboard is AeroDB.** Anyone can see the top 10; saving a score needs
+an Aero sign-in. Pick a handle (`a-z0-9`, 3–16 characters) and it's yours —
+choosing a different one later renames your entry rather than adding a second.
+Your personal best is also kept in `localStorage`, so it shows even signed out.
+[src/net/leaderboard.js](src/net/leaderboard.js) is the only file that talks to
+the API.
 
 ## Deploy
 
