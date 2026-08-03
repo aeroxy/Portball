@@ -1,0 +1,19 @@
+{
+  "name": "portball",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "deploy": "./scripts/deploy.sh"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "vite": "^8.2.0"
+  },
+  "dependencies": {
+    "pixi-filters": "^6.1.5",
+    "pixi.js": "^8.19.0"
+  }
+}

@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <title>Portball</title>
+    <link rel="icon" type="image/png" href="/src/art/sprites/favicon.png" />
+    <style>
+      html, body {
+        margin: 0;
+        height: 100%;
+        background: #0b0716;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        color: #f2ecff;
+      }
+      canvas {
+        image-rendering: pixelated;
+        touch-action: none;
+      }
+
+      #gameover {
+        position: fixed;
+        inset: 0;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        background: rgba(11, 7, 22, 0.82);
+        z-index: 10;
+      }
+      #gameover[data-open='1'] { display: flex; }
+
+      .panel {
+        width: min(90vw, 420px);
+        max-height: 88vh;
+        overflow-y: auto;
+        padding: 24px;
+        border: 2px solid #3a2d63;
+        background: #150e2b;
+        box-shadow: 0 0 0 4px #0b0716, 0 12px 40px rgba(0, 0, 0, 0.6);
+      }
+      .panel h1 {
+        margin: 0 0 16px;
+        font-size: 24px;
+        letter-spacing: 2px;
+        color: #ff7a4d;
+      }
+      .stats { margin-bottom: 20px; font-size: 14px; line-height: 1.7; }
+      .stats b { color: #7dfcc6; font-weight: 600; }
+
+      .board { margin-bottom: 20px; font-size: 13px; }
+      .board h2 {
+        margin: 0 0 8px;
+        font-size: 12px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: #9c8fc7;
+        font-weight: 600;
+      }
+      .board ol { margin: 0; padding: 0; list-style: none; }
+      .board li {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 3px 6px;
+      }
+      .board li.me { background: #2a1f4d; color: #7dfcc6; }
+      .board li .rank { color: #6d5f99; width: 2em; flex: none; }
+      .board li .name { flex: 1; overflow: hidden; text-overflow: ellipsis; }
+      .board .empty { color: #6d5f99; font-style: italic; }
+
+      .action { display: flex; flex-direction: column; gap: 10px; }
+      .action input {
+        padding: 9px 10px;
+        border: 2px solid #3a2d63;
+        background: #0b0716;
+        color: #f2ecff;
+        font: inherit;
+        font-size: 14px;
+      }
+      .action input:focus { outline: none; border-color: #7dfcc6; }
+      .action button, .action a.btn {
+        padding: 10px;
+        border: 2px solid #7dfcc6;
+        background: transparent;
+        color: #7dfcc6;
+        font: inherit;
+        font-size: 13px;
+        letter-spacing: 1px;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+      }
+      .action button:hover:not(:disabled), .action a.btn:hover { background: #7dfcc6; color: #0b0716; }
+      .action button:disabled { border-color: #3a2d63; color: #6d5f99; cursor: default; }
+      .action button.restart { border-color: #ff7a4d; color: #ff7a4d; }
+      .action button.restart:hover { background: #ff7a4d; color: #0b0716; }
+      .note { font-size: 12px; color: #9c8fc7; line-height: 1.5; }
+      .note.error { color: #ff7a4d; }
+    </style>
+  </head>
+  <body>
+    <div id="gameover">
+      <div class="panel">
+        <h1>GAME OVER</h1>
+        <div class="stats">
+          carrots collected: <b id="go-score">0</b><br />
+          your best: <b id="go-best">0</b>
+        </div>
+        <div class="board">
+          <h2>Top 10</h2>
+          <div id="go-board"></div>
+        </div>
+        <div class="action" id="go-action"></div>
+      </div>
+    </div>
+
+    <!-- Frozen public contract: Aero rewrites this exact un-hashed path to its
+         hashed asset when serving /p/ pages. 404s harmlessly in local dev,
+         which is what puts the leaderboard into its offline mode. -->
+    <script src="/aero-db.js"></script>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
