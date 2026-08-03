@@ -106,8 +106,15 @@ export class GameOverPanel {
       const res = await claimAndSave(handle, this.score);
       if (res.ok) {
         this.renderBoard(await top10());
+        const renamed = res.renamedFrom?.length
+          ? `renamed from ${res.renamedFrom.join(', ')} — `
+          : '';
         this.renderAction([
-          this.note(res.unchanged ? 'your best still stands' : 'saved'),
+          this.note(
+            res.improved
+              ? `${renamed}saved ${res.score}`
+              : `${renamed}your best of ${res.score} still stands`,
+          ),
           this.restartButton(),
         ]);
         return;
