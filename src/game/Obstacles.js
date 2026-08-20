@@ -8,6 +8,7 @@
 
 import { Container, Sprite } from 'pixi.js';
 import { circleOverlap, rectOverlap } from './physics.js';
+import { MAX_RISE } from './Terrain.js';
 
 const SPEED_MIN = 50; // px/s
 const SPEED_MAX = 80;
@@ -47,7 +48,10 @@ export class Obstacles {
     const kind = r === 0 ? 'friend' : r === 1 ? 'enemy' : 'shelf';
     const sprite = new Sprite(this.textures[kind]);
     sprite.anchor.set(0.5);
-    const margin = Math.max(sprite.height, 24);
+    // Clear of the terrain as well as the edge: a carrot spawned inside a
+    // boulder is uncollectable, and a thorn ball buried in the floor is an
+    // unfair death.
+    const margin = MAX_RISE + Math.max(sprite.height, 24);
     sprite.x = this.worldWidth + sprite.width / 2;
     sprite.y = margin + Math.random() * (this.worldHeight - margin * 2);
     this.container.addChild(sprite);

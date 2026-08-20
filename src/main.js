@@ -7,6 +7,7 @@ import { makeStageFilters, makePortalGlow, EffectDriver } from './art/effects.js
 import { Background } from './game/Background.js';
 import { Bunny } from './game/Bunny.js';
 import { Obstacles } from './game/Obstacles.js';
+import { Terrain } from './game/Terrain.js';
 import { Portals } from './game/Portals.js';
 import { Hud } from './game/Hud.js';
 import { GameOverPanel } from './game/GameOverPanel.js';
@@ -46,10 +47,17 @@ const world = new Container();
 app.stage.addChild(world);
 
 const background = new Background(textures.background, WIDTH, HEIGHT);
+const terrain = new Terrain(WIDTH, HEIGHT);
 const obstacles = new Obstacles(textures, WIDTH, HEIGHT);
 const portals = new Portals(textures, WIDTH);
 const bunny = new Bunny(textures);
-world.addChild(background.container, obstacles.container, portals.container, bunny.sprite);
+world.addChild(
+  background.container,
+  terrain.container,
+  obstacles.container,
+  portals.container,
+  bunny.sprite,
+);
 
 const stageFilters = makeStageFilters();
 world.filters = stageFilters.list;
@@ -68,6 +76,7 @@ function restart() {
   alive = true;
   hud.setScore(0);
   obstacles.reset();
+  terrain.reset();
   portals.reset();
   bunny.reset(60, 120);
 }
@@ -88,11 +97,12 @@ app.ticker.add((ticker) => {
   if (!alive) return;
 
   background.update(dt);
+  terrain.update(dt);
   // Gates drift with the backdrop, so they update alongside it — and freeze
   // with the rest of the scene on game over.
   portals.update(dt);
   obstacles.update(dt);
-  bunny.update(dt, WIDTH, HEIGHT, obstacles.shelfRects());
+  bunny.update(dt, WIDTH, HEIGHT, obstacles.shelfRects(), terrain.bumps());
 
   // A gate takes whatever reaches it first and closes behind it. The bunny is
   // offered first so the player wins a tie against a drifting obstacle.

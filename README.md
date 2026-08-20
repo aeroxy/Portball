@@ -3,7 +3,8 @@
 A bunny hops through portals it can't stop making. Tap to drop a pair of
 checkpoint gates anywhere on screen, and the bunny warps from one to the other
 mid-bounce — collect golden carrots, dodge the thorn balls, and use the mossy
-ledges to keep yourself airborne. Originally a 2014 Objective-C/SpriteKit
+ledges to keep yourself airborne. Every so often a rock comes past on the floor
+or the ceiling, and a bounce off one never comes back the way it went in. Originally a 2014 Objective-C/SpriteKit
 prototype by Aero + Quincy that never got past "the ball moves"; rebuilt for the
 web with an actual game loop and entirely new art.
 
@@ -21,6 +22,13 @@ pair has to be committed to quickly.
 Carrots score a point. Thorn balls end the run. Ledges are solid and bouncy. So
 is stopping: a bunny that stays motionless for a second and a half has stopped
 bouncing, and the run ends there too.
+
+The rocks are terrain, not obstacles — a gate won't move them. They arrive one
+or two at a time with clean stretches in between, so most of a run is ordinary
+bouncing and a rock is something you see coming and plan around. Where the bunny
+lands on one decides where it leaves. The bunny keeps a single fixed budget of
+energy for the whole run: rocks trade its speed between vertical and horizontal,
+but nothing adds to it or takes it away.
 
 A gate isn't fussy about what goes through it — a drifting carrot, thorn ball or
 ledge will take it too, and whatever arrives first closes the pair behind it. So
@@ -41,10 +49,18 @@ or Add to Home Screen to lose the browser chrome.
   with nearest-neighbour sampling, so the pixels stay square.
 - **`pixi-filters`** for the CRT scanlines, gate glow, and the chromatic split
   that fires on a warp.
-- **No physics engine.** [src/game/physics.js](src/game/physics.js) is about a
-  hundred lines: gravity integration, elastic reflection off the world bounds and
-  ledge rectangles, and circle overlap tests for the sensors. One bouncing circle
-  does not justify pulling in Matter.js or Rapier.
+- **No physics engine.** [src/game/physics.js](src/game/physics.js) is under two
+  hundred lines: gravity integration, elastic reflection off the world bounds,
+  ledge rectangles and terrain rocks, and circle overlap tests for the sensors.
+  One bouncing circle does not justify pulling in Matter.js or Rapier.
+
+  Two details there are load-bearing rather than incidental. Position integrates
+  on the frame's *average* velocity, because plain semi-implicit Euler sheds
+  `0.5 * g² * dt²` of energy per frame and the bunny is meant to bounce forever.
+  And the whole collision pass is bracketed by an energy snapshot/restore, because
+  pushing a body out of something it penetrated is free lift. Left alone those two
+  errors cancelled on a flat floor and on nothing else — which is why the original
+  ceiling appeared to hand out momentum.
 
 ## Local development
 
@@ -129,7 +145,7 @@ environment if you'd rather not keep a file.
 | Path | What's in it |
 |---|---|
 | [src/main.js](src/main.js) | Boot, ticker, input, and the wiring between everything below |
-| [src/game/](src/game/) | Bunny, portals, obstacles, background, physics, HUD, game-over panel |
+| [src/game/](src/game/) | Bunny, portals, obstacles, terrain, background, physics, HUD, game-over panel |
 | [src/art/](src/art/) | Texture loading, GPU effects, procedural fallback sprites, and `sprites/` |
 | [src/net/](src/net/) | AeroDB leaderboard client |
 | [scripts/](scripts/) | `deploy.sh` |
